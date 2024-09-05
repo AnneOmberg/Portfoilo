@@ -15,7 +15,7 @@ app.get('/json', async (c) => {
     return c.json(JSON.parse(data))
 })
 
-//Brukte chatgtp: how do i handle POST requests?
+//Brukte chatgtp: how do i handle POST requests? 
 app.post('/submit.project', async (context) => {
     const data = await c.reg.json()
     console.log(data)

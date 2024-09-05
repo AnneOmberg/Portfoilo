@@ -1,6 +1,6 @@
 // import './style.css'
-import './style/style.scss'
-import './style/_variables.scss'
+import './style.scss'
+import './_variables.scss'
 
 
 
