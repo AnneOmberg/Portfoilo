@@ -35,25 +35,28 @@
     <aside>
       <form id="project-form">
         <h3>New Project</h3>
-        <!-- <label for="project_title">Project title</label>
-        <input type="text" id="project-title" placeholder="...Project Title...">
+        <label for="project_title">Project title</label>
+        <input type="text" id="project-title" name="title" placeholder="...Project Title..." required>
 
         <label for="timeframe">Timeframe</label>
-        <input type="text" id="month" placeholder="Month">
-        <input type="text" id="year" placeholder="Year">
+        <input type="text" id="start-month" name="start-month" placeholder="Start Month" required>
+        <input type="text" id="star-year" name="start-year" placeholder="Start Year" required>
+        <input type="text" id="end-month" name="end-month" placeholder="End Month">
+        <input type="text" id="end-year" name="end-year" placeholder="End Year">
 
         <label for="description">Description</label>
-        <input type="text" id="description" placeholder="Description...">
+        <input type="text" id="description" name="description" placeholder="Description..." required>
 
         <label for="company"></label>
-        <input type="text" id="company" placeholder="Employer name...">
+        <input type="text" id="company" name="company" placeholder="Employer name..." required>
 
-        <button type="submit" onclick="click">Send</button> -->
+        <button type="submit" onclick="click">Send</button>
       </form>
     </aside>
   </main>
   <script type="module" src="/main.js"></script>
   <script type="module" src="/server.js"></script>
+  <script type="module" src="/components/aside.js"></script>
 
 </body>
 
