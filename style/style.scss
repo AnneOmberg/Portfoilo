@@ -1,0 +1,12 @@
+@import './variables';
+
+:root {
+    font-family: var($font);
+    display: flex;
+}
+
+body {
+    color: var($light);
+    background-color: var($dark);
+
+}
