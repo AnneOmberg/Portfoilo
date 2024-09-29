@@ -1,29 +1,21 @@
-import { useState } from "react"
+// import { useState } from "react"
 
+type ProjectData= {
+    projectTitle: string
+projectDescription: string
 
-export default function ProjectCard(){
-
-    // const project = {
-    //     title: "first-project",
-    //     image: "https://placehold.co/100x100"
-    // }
-
-    // const [query, setQuery]= useState[]
+  }
+export default function ProjectCard({ projectTitle, projectDescription }: ProjectData){
 
     return(
-        <section>
 
         <article className="project-card">           
-            <h3>Project Name</h3>
+            <h3>{projectTitle}</h3>
             <img src="https://placehold.co/100x100" alt="Placeholder" />
-            {/* <p> {projectOne} </p> */}
-        </article>
-        <article className="project-card">
-            <h3>Project Name</h3>
-            <img src="https://placehold.co/100x100" alt="Placeholder" />
-            {/* <p> {projectOTwo} </p> */}
+            <p> {projectDescription} </p>
+            
+            {/* <p> {duration.start.month} </p> */}
         </article>
 
-        </section>
     )
 }

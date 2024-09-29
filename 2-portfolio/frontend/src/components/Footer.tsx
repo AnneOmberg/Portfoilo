@@ -7,7 +7,7 @@ type ContactProps = {
 export default function Footer({email, schoolEmail}: ContactProps){
 
     return(
-        <footer>
+      <footer className="footer">
         <ul>
           <li> {email} </li>
           <li> {schoolEmail} </li>
