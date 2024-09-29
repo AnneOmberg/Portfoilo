@@ -1,10 +1,11 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { app } from "./app"
 
 const app = new Hono()
 
 app.get('/', (c) => {
-  return c.text('Hello Hono!')
+  return c.json('Hello Hono!')
 })
 
 const port = 3999

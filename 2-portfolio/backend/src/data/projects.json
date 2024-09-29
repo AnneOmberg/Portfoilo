@@ -1,5 +1,6 @@
 {
-    "project":{
+    "project":[
+    {
         "id": "first-project",
         "title": "Project 1",
         "description": "Project summery",
@@ -11,4 +12,5 @@
         "description": "Project summery",
         "employer": "Second employer"
     }
+]
 }
