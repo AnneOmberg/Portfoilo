@@ -1,0 +1,14 @@
+{
+    "project":{
+        "id": "first-project",
+        "title": "Project 1",
+        "description": "Project summery",
+        "employer": "First employer"
+    },
+    {
+        "id": "second-project",
+        "title": "Project 2",
+        "description": "Project summery",
+        "employer": "Second employer"
+    }
+}

@@ -1,0 +1,69 @@
+@import './variables';
+
+body{
+    display: flex;
+    flex-wrap: wrap;
+    font-family: $font-monospace;
+    margin: 0;
+    background-color: black;
+    color: white;
+    max-width: 100vw;
+    
+    h1, h2, h3{
+        font-family: $font-sans-seriff;
+    }
+    
+    header{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        
+        h2{
+            color: $constrast;
+            margin-bottom: 0;
+
+        }
+        #name{
+            color: $light;
+            font-weight: 300;
+        }
+    }
+    main{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+        justify-content: space-between;
+        background-color: $light;
+        color: black;
+        
+        .project-card{
+            border-radius: 1rem;
+            margin: 1rem;
+            padding: 1rem 2rem;
+            width: 30vw;
+            box-shadow:  1px 5px 10px rgba(0, 0, 0, 0.4);
+            // border: 3px, solid, rgb(132, 78, 78);
+            h3{
+                font-size: larger;
+            }
+            img{
+                max-width: 15vw;
+                box-shadow:  1px 5px 10px rgba(0, 0, 0, 0.4);
+                
+            }
+        }
+        
+        
+        aside{
+            border-radius: 1rem;
+            margin-top: 1rem;
+            font-family: $font-monospace;
+            margin: 1rem;
+            background-color: $lighter;
+            box-shadow: 1px 5px 10px rgba(0,0,0,0.4);
+            padding: 1rem 2rem;
+        }
+    }
+    
+}
+
