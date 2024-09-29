@@ -3,28 +3,25 @@ import { useState } from "react"
 
 export default function ProjectCard(){
 
-    const project = {
-        title: "first-project",
-        image: "https://placehold.co/100x100"
-    }
+    // const project = {
+    //     title: "first-project",
+    //     image: "https://placehold.co/100x100"
+    // }
 
-    const [query, setQuery]= useState[]
+    // const [query, setQuery]= useState[]
 
     return(
         <section>
 
-        <article className="project-card">
-
-
-            
+        <article className="project-card">           
             <h3>Project Name</h3>
             <img src="https://placehold.co/100x100" alt="Placeholder" />
-            <p>Short description of the project...</p>
+            {/* <p> {projectOne} </p> */}
         </article>
         <article className="project-card">
             <h3>Project Name</h3>
             <img src="https://placehold.co/100x100" alt="Placeholder" />
-            <p>Short description of the project...</p>
+            {/* <p> {projectOTwo} </p> */}
         </article>
 
         </section>
