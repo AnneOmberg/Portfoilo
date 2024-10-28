@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
-import ProjectCard from "./components/ProjectCard"
-import Filter from "./components/Filter"
+// import ProjectCard from "./components/ProjectCard"
+// import Filter from "./components/Filter"
 import AddProject from "./components/AddProject"
-import Avatar from "./components/Avatar"
+// import Avatar from "./components/Avatar"
 import Grid from "./components/Grid"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 
 const initialProjects = [
@@ -15,6 +17,12 @@ function App() {
   const [filter, setFilter] = useState("x")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+
+  const user = "Anne May Omberg"
+  const degree = "Bachelor Digital Media Design"
+  const educationPoints = 220
+  const email = 'annenmayomberg@gmail.com'
+  const schoolEmail = 'annemni@hiof.no'
 
   const [projects, setProjects] = useState<Project[]>(initialProjects ?? [])
 
@@ -71,11 +79,12 @@ function App() {
 
   return (
     <main>
-      <h1>Anne prøver igjen</h1>
+      <Header user={user} educationPoints={educationPoints} degree={degree} />
       {/* <Filter filter={filter} onFilterChange={onFilterChange} options={Object.values(options)} /> */}
       <Grid projects={projects} onRemoveProject={onRemoveProject} >
         <AddProject onAddProject={onAddProject} />
       </Grid>
+      <Footer email={email} schoolEmail={schoolEmail} />
     </main>
   )
 }

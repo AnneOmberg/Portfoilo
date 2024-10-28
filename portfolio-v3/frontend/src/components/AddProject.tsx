@@ -16,10 +16,12 @@ export default function AddProject(props: AddProjectFromProps) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="add-project">
-            <label htmlFor="employer">Oppdragsgiver</label>
-            <input type="text" id="employer" placeholder="Navn til oppdragsgiver" value={employer} onChange={(e) => setEmployer(e.target.value)} />
-            <button type="submit">Legg til prosjekt</button>
-        </form>
+        <aside>
+            <form onSubmit={handleSubmit} className="add-project">
+                <label htmlFor="employer">Oppdragsgiver</label>
+                <input type="text" id="employer" placeholder="Navn til oppdragsgiver" value={employer} onChange={(e) => setEmployer(e.target.value)} />
+                <button type="submit">Legg til prosjekt</button>
+            </form>
+        </aside>
     )
 }

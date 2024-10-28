@@ -6,8 +6,10 @@ export default function ProjectCard(
 ) {
 
     const [showRemove, setShowRemove] = useState(false)
-    const { id, employer, description, onRemoveProject
+    const { id, employer, description, employStart, employEnd, onRemoveProject
     } = props
+
+
 
     const updateShowState = () => {
         setShowRemove(true)
@@ -22,6 +24,7 @@ export default function ProjectCard(
             {showRemove ? (
                 <button type="button" onClick={() => onRemoveProject(id)}>X</button>
             ) : null}
+            <span>{employStart} - {employEnd}</span>
 
 
         </article>

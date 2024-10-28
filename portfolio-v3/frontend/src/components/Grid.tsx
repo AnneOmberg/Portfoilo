@@ -12,12 +12,10 @@ export default function Grid(props: PropsWithChildren<GripProps>) {
     const { projects, onRemoveProject, children } = props
 
     return (
-        <section>
-            <article className="grid">
-                {projects.map((project) => (
-                    <ProjectCard key={project.id} id={project.id} employer={project.employer} description={project.description} onRemoveProject={onRemoveProject} />
-                ))}
-            </article>
+        <section className="grid">
+            {projects.map((project) => (
+                <ProjectCard key={project.id} id={project.id} employer={project.employer} description={project.description} employEnd="employEnd" employStart="employStart" onRemoveProject={onRemoveProject} />
+            ))}
             {children}
         </section>
     )

@@ -1,17 +1,17 @@
 [    
     {
         "id": "first-project",
+        "employer": "First employer",
         "title": "Project 1",
         "description": "Project summery",
-        "employer": "First employer",
         "employStart": "2024-01-01T12:00:00Z",
         "employEnd": "2024-03-01T12:00:00Z"
     },
     {
         "id": "second-project",
+        "employer": "Second employer",
         "title": "Project 2",
         "description": "Project summery",
-        "employer": "Second employer",
         "employStart": "2024-01-01T12:00:00Z",
         "employEnd": "2024-03-01T12:00:00Z"
     }
