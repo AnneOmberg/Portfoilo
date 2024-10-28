@@ -1,41 +1,28 @@
 import { useEffect, useState } from "react"
-import Footer from "./components/Footer"
-import Header from "./components/Header"
-import NewProject from "./components/NewProject"
 import ProjectCard from "./components/ProjectCard"
-import { Project } from "./components/types"
+import Filter from "./components/Filter"
+import AddProject from "./components/AddProject"
+import Avatar from "./components/Avatar"
+import Grid from "./components/Grid"
 
-const initialProject = [
-  { id: "0", name: "Children's colorbook" },
-  { id: "0", name: "Logo design" },
+
+const initialProjects = [
+  { id: "0", employer: "Profilforum" },
+  { id: "1", employer: "Relieff" }
 ]
+
 function App() {
   const [filter, setFilter] = useState("x")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
 
-  const [projects, setProjects] = useState<Project[]>(initialProject ?? [])
+  const [projects, setProjects] = useState<Project[]>(initialProjects ?? [])
 
-  const filterProjects = projects.filter((project) => filter !== "-" ? project.title.toLowerCase().includes(filter) : true)
-
-
-  //project oblig 2
-  const [projectTitle, setProjectTitle] = useState<string>(
-    "Colorbook Illustartion"
-  )
-  const [projectDescription, setProjectDescription] = useState<string>(
-    "Illustrated a childrens`s coloring book, including the fullcolor cover, using adobe illustartor."
-  )
-  //Header variables
-  const user = "Anne May Omberg"
-  const degree = "Bachelor Digital Media Design"
-  const educationPoints = 220
-  const email = "annenmayomberg@gmail.com"
-  const schoolEmail = "annemni@hiof.no"
+  const filteredProjects = projects.filter((project) => filter !== "x" ? project.employer.loLowerCase().includes(filter) : true)
 
 
   useEffect(() => {
-    const fetchProject = async () => {
+    const fetchProjects = async () => {
       try {
         setLoading(true)
 
@@ -44,19 +31,37 @@ function App() {
         setProjects(data)
       } catch (error) {
         console.error(error)
-        setError("feilet med å hente projects")
+        setError("Feilet med henting av projects")
+        console.log("error feilet")
       } finally {
         setLoading(false)
       }
     }
-    fetchProject()
-  })
+    fetchProjects()
+  }, [])
 
-  const onfilterchange = (filter: string) => {
+  //  ? Filtrerer slik at kun en bestemt arbeidsagiver kommer opp
+
+  const options = array.form(
+    projects.reduce((acc, project: Project) => {
+      const employer = project.employer.trim().split(" ")[0]
+      if (acc.has(employer))
+        return acc
+
+      return acc.set(employer, {
+        ...project,
+        value: employer.toLowerCase(),
+        label: employer
+      })
+    }, new Map())
+      .values()
+  )
+
+  const onFilterChange = (filter: string) => {
     setFilter(filter)
   }
 
-  const onAddProject = (project: omit<Project, "id">) => {
+  const onAddProject = (project: Omit<Project, "id">) => {
     setProjects((prev) => [...prev, { id: crypto.randomUUID(), ...project }])
   }
 
@@ -64,35 +69,15 @@ function App() {
     setProjects((prev) => prev.filter((project) => project.id !== id))
   }
 
-
   return (
-    <>
-      <Header user={user} degree={degree} educationPoints={educationPoints} />
-
-      <main>
-        <ProjectCard
-          projectTitle={projectTitle}
-          projectDescription={projectDescription}
-        />
-        <NewProject />
-      </main>
-      <Footer email={email} schoolEmail={schoolEmail} />
-    </>
+    <main>
+      <h1>Anne prøver igjen</h1>
+      <Filter filter={filter} onFilterChange={onFilterChange} options={Object.values(options)} />
+      <Grid projects={filteredProjects} onRemoveProject={onRemoveProject} >
+        <AddProject onAddProject={onAddProject} />
+      </Grid>
+    </main>
   )
 }
-export default App
 
-// const projectTwo = {
-//   title: 'Graphic Design for Advertisement',
-//   description: 'Design of logo, buisness card and flyer for a start-up',
-//   duration: {
-//       start: {
-//         month: 9,
-//         year: 2021
-//       },
-//       end:{
-//           month: 11,
-//           year: 2021
-//       }
-//   }
-// }
+export default App

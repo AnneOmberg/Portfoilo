@@ -1,5 +1,4 @@
-{
-    "project":[
+[    
     {
         "id": "first-project",
         "title": "Project 1",
@@ -16,5 +15,5 @@
         "employStart": "2024-01-01T12:00:00Z",
         "employEnd": "2024-03-01T12:00:00Z"
     }
+
 ]
-}
