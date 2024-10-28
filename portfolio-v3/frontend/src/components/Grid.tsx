@@ -1,8 +1,9 @@
 import { PropsWithChildren } from "react"
 import ProjectCard from "./ProjectCard"
+import { Project } from "./types"
 
 type GripProps = {
-    projects: ProjectProps[]
+    projects: Project[]
 
     onRemoveProject: (id: string) => void
 }
@@ -14,7 +15,7 @@ export default function Grid(props: PropsWithChildren<GripProps>) {
         <section>
             <article className="grid">
                 {projects.map((project) => (
-                    <ProjectCard key={project.id} id={project.id} employer={project.employer} onRemoveProject={onRemoveProject} />
+                    <ProjectCard key={project.id} id={project.id} employer={project.employer} description={project.description} onRemoveProject={onRemoveProject} />
                 ))}
             </article>
             {children}

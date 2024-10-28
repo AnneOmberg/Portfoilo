@@ -20,42 +20,42 @@ function App() {
 
   const filteredProjects = projects.filter((project) => filter !== "x" ? project.employer.loLowerCase().includes(filter) : true)
 
+  const fetchProjects = async () => {
+    try {
+      const data = await fetch("http://localhost:3999/projects")
+      const response = await data.json()
+      return response
+    } catch (error) {
+      console.error(error)
+      setError("Feilet med henting av projects")
+      console.log("error feilet")
+    } finally {
+      setLoading(false)
+    }
+  }
 
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        setLoading(true)
-
-        const response = await fetch("")
-        const data = await response.json()
-        setProjects(data)
-      } catch (error) {
-        console.error(error)
-        setError("Feilet med henting av projects")
-        console.log("error feilet")
-      } finally {
-        setLoading(false)
-      }
-    }
-    fetchProjects()
+    fetchProjects().then((data) => setProjects(data))
   }, [])
+
+  console.log(projects)
 
   //  ? Filtrerer slik at kun en bestemt arbeidsagiver kommer opp
 
-  const options = array.form(
-    projects.reduce((acc, project: Project) => {
-      const employer = project.employer.trim().split(" ")[0]
-      if (acc.has(employer))
-        return acc
+  // const options = array.form(
+  //   projects.reduce((acc, project: Project) => {
+  //     const employer = project.employer.trim().split(" ")[0]
+  //     if (acc.has(employer))
+  //       return acc
 
-      return acc.set(employer, {
-        ...project,
-        value: employer.toLowerCase(),
-        label: employer
-      })
-    }, new Map())
-      .values()
-  )
+  //     return acc.set(employer, {
+  //       ...project,
+  //       value: employer.toLowerCase(),
+  //       label: employer
+  //     })
+  //   }, new Map())
+  //     .values()
+  // )
 
   const onFilterChange = (filter: string) => {
     setFilter(filter)
@@ -72,8 +72,8 @@ function App() {
   return (
     <main>
       <h1>Anne prøver igjen</h1>
-      <Filter filter={filter} onFilterChange={onFilterChange} options={Object.values(options)} />
-      <Grid projects={filteredProjects} onRemoveProject={onRemoveProject} >
+      {/* <Filter filter={filter} onFilterChange={onFilterChange} options={Object.values(options)} /> */}
+      <Grid projects={projects} onRemoveProject={onRemoveProject} >
         <AddProject onAddProject={onAddProject} />
       </Grid>
     </main>

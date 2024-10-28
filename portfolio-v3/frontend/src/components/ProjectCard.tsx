@@ -1,11 +1,13 @@
 import { useState } from "react"
+import { Project } from "./types"
 
 export default function ProjectCard(
-    props: ProjectProps & { onRemoveProject: (id: string) => void }
+    props: Project & { onRemoveProject: (id: string) => void }
 ) {
 
     const [showRemove, setShowRemove] = useState(false)
-    const { id, employer, onRemoveProject } = props
+    const { id, employer, description, onRemoveProject
+    } = props
 
     const updateShowState = () => {
         setShowRemove(true)
@@ -16,6 +18,7 @@ export default function ProjectCard(
         <article onMouseOver={updateShowState} onMouseLeave={() => setShowRemove(false)}>
             <h2>Project Title</h2>
             <p className="project-employer">{employer}</p>
+            <p>{description}</p>
             {showRemove ? (
                 <button type="button" onClick={() => onRemoveProject(id)}>X</button>
             ) : null}

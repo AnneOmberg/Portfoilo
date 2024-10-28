@@ -11,7 +11,7 @@ app.get("/projects", async (c) => {
   try {
     const data = await fs.readFile("src/data/projects.json", "utf-8")
     const projects = JSON.parse(data)
-    return c.json({ data: projects })
+    return c.json(projects)
   } catch (error) {
     return c.json({ error: "Failed to read projects.json" }, 500)
   }
